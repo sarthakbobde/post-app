@@ -6,4 +6,12 @@
 
 {% block content %}
     <h1 class="text-center text-white mt-4">Welcome to Post App</h1>
+
+    <h3> Are you sure you want to delete tweet with id with {{tweet.id}}</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger" href="{% url 'tweet_delete' tweet.id%}">Delete</button>
+    </form>
+    <button class="btn btn-success" href="{% url 'tweet_list' %}">Cancel</button>
 {% endblock %}

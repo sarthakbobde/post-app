@@ -6,4 +6,20 @@
 
 {% block content %}
     <h1 class="text-center text-white mt-4">Welcome to Post App</h1>
+
+    <h2>
+        {% if form.instance.pk %}
+        Edit Tweet
+        {% else %}
+        Create Tweet
+        {% endif %}
+    </h2>
+
+    <!-- enctype will allow images also -->
+    <form method="post" enctype="multipart/form-data" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn brn-secoundary" href="{% url 'tweet_list' %}">Back to Home</button>
+    </form>
 {% endblock %}
