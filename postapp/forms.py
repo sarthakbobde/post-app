@@ -9,9 +9,9 @@ class TweetForm(forms.ModelForm):
         # it is list because we created form
         fields = ['text', 'photo']
         
-class UserCreationForm(UserCreationForm):
+class UserRegistrationForm(UserCreationForm):
     email = forms.EmailField()
     class Meta:
         model = User
         # it is a tuple because it is built in form
-        fields = ()
+        fields = ('username', 'email', 'password1', 'password2')
