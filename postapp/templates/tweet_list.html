@@ -17,7 +17,7 @@
             <img src="{{tweet.photo.url}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{tweet.user.username}}</h5>
-              <p class="card-text">{{tweet.user.text}}</p>
+              <p class="card-text">{{tweet.text}}</p>
               {% if tweet.user == user %}
                 <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-primary">Edit</a>
                 <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger">Delete</a>

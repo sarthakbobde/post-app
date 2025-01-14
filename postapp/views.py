@@ -60,3 +60,19 @@ def register(request):
     else:
         form = UserRegistrationForm()
     return render(request, 'registration/register.html', {'form':form})
+
+def search_tweet(request):
+    if request.method == 'GET':
+        query = request.GET.get('q')
+        tweets = Tweet.objects.all()
+        
+        if query:
+            tweets = tweets.filter(
+                text__icontains=query
+            ) | tweets.filter(
+                user__username__icontains=query
+            )
+        else:
+            tweets = Tweet.objects.all()
+        
+    return render(request, 'tweet_list.html', {'tweets':tweets})
