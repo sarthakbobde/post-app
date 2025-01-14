@@ -3,7 +3,7 @@ from .models import Tweet, User
 from .forms import TweetForm, UserRegistrationForm
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 def index(request):
